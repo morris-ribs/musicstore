@@ -72,7 +72,7 @@ func (c *Controller) UpdateAlbum(w http.ResponseWriter, r *http.Request) {
 	if err := r.Body.Close(); err != nil {
 		log.Fatalln("Error AddaUpdateAlbumlbum", err)
 	}
-	if err := json.Unmarshal(body, &album); err != nil { // unmarshall body contents as a type Candidate
+	if err := json.Unmarshal(body, &album); err != nil { // unmarshall body contents as a type Album
 		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 		w.WriteHeader(422) // unprocessable entity
 		if err := json.NewEncoder(w).Encode(err); err != nil {
