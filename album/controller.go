@@ -41,7 +41,7 @@ func (c *Controller) AddAlbum(w http.ResponseWriter, r *http.Request) {
 	if err := r.Body.Close(); err != nil {
 		log.Fatalln("Error AddAlbum", err)
 	}
-	if err := json.Unmarshal(body, &album); err != nil { // unmarshall body contents as a type Candidate
+	if err := json.Unmarshal(body, &album); err != nil { // unmarshall body contents as a type Album
 		w.WriteHeader(422) // unprocessable entity
 		if err := json.NewEncoder(w).Encode(err); err != nil {
 			log.Fatalln("Error AddAlbum unmarshalling data", err)
